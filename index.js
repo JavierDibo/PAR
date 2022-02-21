@@ -10,11 +10,12 @@ app.route('/tickets')
 app.route('/ticket/:id')
 .get((req, res) => { res.send(db.tickets[0].id); } )
 
-app.route('/ticket/:id')
-.get((req, res) => { res.send("Peticion GET en /tickets/:id"); } )
-
 app.route('/nueva')
-.post((req, res) => { res.send("Peticion POST en /nueva"); } )
+.post((req, res) => { 
+  const { titulo, descripcion } = req.body;
+const otratarea = { // Construcción de la nueva tarea
+id: uuid.v4(), titulo, descripcion, terminada: false, 
+} )
 
 app.route('/actualizaticket/:id/:completada')
 .get((req, res) => { res.send("Peticion GET en /actualizaticket/:id/:completada"); } )
