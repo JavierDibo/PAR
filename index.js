@@ -5,10 +5,10 @@ const db = require('./db.json');
 
 const app = express();
 app.route('/tickets') 
-.get((req, res) => { res.send("Petición GET en /tickets"); } )
+.get((req, res) => { res.send(db); } )
 
 app.route('/ticket/:id')
-.get((req, res) => { res.send("Peticion GET en /tickets/:id"); } )
+.get((req, res) => { res.send(db.tickets[0].id); } )
 
 app.route('/ticket/:id')
 .get((req, res) => { res.send("Peticion GET en /tickets/:id"); } )
